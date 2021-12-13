@@ -14,12 +14,12 @@ $search= $stmt->get_result();
 ?>
 
 <!--Co tak dat vysledky vyhladavania a data[title] do htmlspecialchars? -->
-<h1> Výsledky vyhľadavania: <?=$_POST['search']?></h1>
+<h1> Výsledky vyhľadavania: <?=htmlspecialchars($_POST['search'])?></h1>
 
 <div>
     <?php
     try {
-      while($data = $dd->fetch_array()){
+      while($data = $search->fetch_array()){
 	  echo 'Article: <a href=/index.php?id='.$data["id"].'>'.$data["title"].'</a><br />';
     }
     } catch (Exception $e) {
